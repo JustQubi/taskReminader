@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1 th:text="${registerInfo}"></h1>
+
+    <form action="/user/add" method="post" th:object="${registerForm}">
+        <p th:if="${#fields.hasErrors('login')}"  th:errors="*{login}"></p>
+        <input type="text" th:field="*{login}" placeholder="Login"><br/>
+
+        <p th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></p>
+        <input type="password" th:field="*{password}" placeholder="Hasło"><br/>
+        <!--<input type="password" th:field="*{password}" placeholder="Powtórz Hasło"><br/>-->
+        <input type="text" th:field="*{name}" placeholder="Imię"><br/>
+        <input type="text" th:field="*{surname}" placeholder="Nazwisko"><br/>
+        <input type="text" th:field="*{zipCode}" placeholder="Kod pocztowy"><br/>
+        <input type="text" th:field="*{city}" placeholder="Miasto"><br/>
+
+        <input type="submit" value="Wyślij"><br/>
+
+    </form>
+</div>
+</body>
+</html>
