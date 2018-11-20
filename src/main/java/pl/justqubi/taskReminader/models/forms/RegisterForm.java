@@ -10,9 +10,10 @@ public class RegisterForm {
     private String login;
     @Size(min = 3, max = 50)
     private String password;
+    private String passwordTwo;
     private String name;
     private String surname;
-    @Pattern(regexp = "\\d{2}-\\d{3}" )
+    @Pattern(regexp = "\\d{2}-\\d{3}")
     private String zipCode;
     private String city;
 
@@ -62,5 +63,13 @@ public class RegisterForm {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPasswordTwo() {
+        return passwordTwo;
+    }
+
+    public void setPasswordTwo(String passwordTwo) {
+        this.passwordTwo = passwordTwo;
     }
 }

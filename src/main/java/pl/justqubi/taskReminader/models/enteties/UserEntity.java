@@ -2,6 +2,7 @@ package pl.justqubi.taskReminader.models.enteties;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user_login")
@@ -17,6 +18,23 @@ public class UserEntity {
     @Column(name = "zip_code")
     private String zipCode;
     private String city;
+
+    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<NoteEntity> notes;
+
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;

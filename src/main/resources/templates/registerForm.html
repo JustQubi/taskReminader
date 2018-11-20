@@ -14,7 +14,9 @@
 
         <p th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></p>
         <input type="password" th:field="*{password}" placeholder="Hasło"><br/>
-        <!--<input type="password" th:field="*{password}" placeholder="Powtórz Hasło"><br/>-->
+        <p th:if="${#fields.hasErrors('passwordTwo')}"  th:errors="*{passwordTwo}"></p>
+        <input type="password" th:field="*{passwordTwo}" placeholder="Powtórz hasło"><br/>
+
         <input type="text" th:field="*{name}" placeholder="Imię"><br/>
         <input type="text" th:field="*{surname}" placeholder="Nazwisko"><br/>
         <input type="text" th:field="*{zipCode}" placeholder="Kod pocztowy"><br/>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista notatek</title>
+</head>
+<body>
+<body>
+<div style="text-align: center;">
+    <ul>
+        <li th:each="notes : ${notes}">
+            <span th:text="${notes.getTitle() + ' ' + notes.getPriority() + ' ' + 'notes.getDate}"></span>
+            <strong th:text="${notes.getContent()}"></strong>
+            <br/>
+            <a th:href="'/note/delete' + ${notes.getId()}">Usuń</a>
+            <hr/>
+        </li>
+    </ul>
+</div>
+</body>
+</body>
+</html>

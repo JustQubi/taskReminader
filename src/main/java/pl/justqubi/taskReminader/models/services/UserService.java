@@ -30,8 +30,6 @@ public class UserService {
     }
 
     public void addUser(RegisterForm registerForm) {
-        System.out.println(registerForm);
-
 
         UserEntity newUser = new UserEntity();
         newUser.setLogin(registerForm.getLogin());
@@ -55,4 +53,9 @@ public class UserService {
         }
         return userSession.isLogin();
     }
+
+    public boolean checkPassword(RegisterForm registerForm){
+        return registerForm.getPassword().equals(registerForm.getPasswordTwo());
+    }
+
 }

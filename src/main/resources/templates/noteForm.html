@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notatka</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>Zadania na dziś</h1>
+    <form action="/note/add" method="post">
+
+        <input type="text" th:field="*{title}" placeholder="Tytuł"><br/>
+        <input type="text" th:field="*{priority}" placeholder="Priorytet(1-10)"><br/>
+        <input type="datetime-local" th:field="*{date}" placeholder="data"><br/>
+        <input type="text" th:field="*{content}" placeholder="Treść (do 300 znaków"><br/>
+        <input type="submit" value="Wyślij"><br/>
+
+    </form>
+</div>
+</body>
+</html>

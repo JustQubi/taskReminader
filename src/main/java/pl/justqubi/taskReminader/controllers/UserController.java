@@ -33,6 +33,11 @@ public class UserController {
     public String getDataFromRegister(@ModelAttribute @Valid RegisterForm registerForm,
                                       BindingResult bindingResult,
                                       Model model) {
+        if(!userService.checkPassword(registerForm)){
+            model.addAttribute("registerInfo", "Hasła niezgodne");
+            return "registerForm";
+        }
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("registerInfo", "Błędne dane");
             return "registerForm";
@@ -57,6 +62,7 @@ public class UserController {
     @PostMapping("/user/login")
     public String loginData(@ModelAttribute LoginForm loginForm,
                             Model model) {
+
         if (userService.tryLogin(loginForm)) {
             model.addAttribute("loginInfo", "Zalogowano!");
             return "loginForm";
